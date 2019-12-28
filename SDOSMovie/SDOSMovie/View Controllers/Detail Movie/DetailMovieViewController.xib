@@ -135,7 +135,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="BJG-q7-BRS" firstAttribute="top" secondItem="cMF-Gf-1eK" secondAttribute="bottom" constant="5" id="HTG-ec-vXX"/>
                                 <constraint firstItem="WEg-97-eMT" firstAttribute="centerX" secondItem="9Ps-cA-9OI" secondAttribute="centerX" id="LUf-9P-kEE"/>
@@ -151,6 +151,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="9Ps-cA-9OI" firstAttribute="top" secondItem="gPE-0R-oLS" secondAttribute="top" id="Ces-b3-IEb"/>
                         <constraint firstItem="9Ps-cA-9OI" firstAttribute="leading" secondItem="gPE-0R-oLS" secondAttribute="leading" id="EI3-l9-0Di"/>

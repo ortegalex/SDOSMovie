@@ -11,4 +11,5 @@ import Foundation
 struct Constants {
     static let kBaseURL = "https://www.omdbapi.com"
     static let kApiKey = "6e1c1cbb"
+    static let imdbUrl = "https://www.imdb.com/title/"
 }

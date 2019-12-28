@@ -20,8 +20,8 @@ class DetailMovieViewController: UIViewController {
     @IBOutlet weak var lbPlot: UILabel!
     @IBOutlet weak var openButton: UIButton!
     
-    
     var imdbID: String!
+    var shareUrl = ""
 
     init(with imdbID: String) {
         self.imdbID = imdbID
@@ -35,6 +35,10 @@ class DetailMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareMovie))
+        self.navigationItem.rightBarButtonItem = shareButton
+        
         getMovieDetail(imdbID)
     }
     
@@ -69,6 +73,32 @@ class DetailMovieViewController: UIViewController {
         self.lbPlot.text = movie.plot
         self.imgPoster.setImage(movie.poster, placeholder: UIImage(named: "film-poster-placeholder"))
         
+        self.shareUrl = Constants.imdbUrl+imdbID
+        
+        self.openButton.addTarget(self, action: #selector(openMovieOnIMDB) , for: .touchUpInside)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleExpandImage))
+        self.imgPoster.isUserInteractionEnabled = true
+        self.imgPoster.addGestureRecognizer(tap)
+        
     }
+    
+    
+    @objc func openMovieOnIMDB() {
+        if !Helpers.open(self.shareUrl) {
+            self.showAlertDialog("No se puede abrir la película", title: "Aviso", didClose: nil)
+        }
+    }
+    
+    @objc func toggleExpandImage() {
+        print("Togle image!!")
+    }
+    
+    @objc func shareMovie() {
+        let items = [URL(string: self.shareUrl)!]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
+    
 
 }
