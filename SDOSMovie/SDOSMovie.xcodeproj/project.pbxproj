@@ -13,6 +13,9 @@
 		FA24F2E123B75CF600A672DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA24F2DF23B75CF600A672DD /* Main.storyboard */; };
 		FA24F2E323B75CF800A672DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA24F2E223B75CF800A672DD /* Assets.xcassets */; };
 		FA24F2E623B75CF800A672DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA24F2E423B75CF800A672DD /* LaunchScreen.storyboard */; };
+		FA24F2EF23B7607600A672DD /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F2EE23B7607600A672DD /* APIProtocol.swift */; };
+		FA24F2F223B7610400A672DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F2F123B7610400A672DD /* Constants.swift */; };
+		FA24F2F423B761E100A672DD /* MovieAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F2F323B761E100A672DD /* MovieAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		FA24F2E223B75CF800A672DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA24F2E523B75CF800A672DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA24F2E723B75CF800A672DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA24F2EE23B7607600A672DD /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
+		FA24F2F123B7610400A672DD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA24F2F323B761E100A672DD /* MovieAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		FA24F2D823B75CF600A672DD /* SDOSMovie */ = {
 			isa = PBXGroup;
 			children = (
+				FA24F2F023B760EE00A672DD /* Configuration */,
+				FA24F2ED23B75FA600A672DD /* Network */,
 				FA24F2D923B75CF600A672DD /* AppDelegate.swift */,
 				FA24F2DB23B75CF600A672DD /* SceneDelegate.swift */,
 				FA24F2DD23B75CF600A672DD /* ViewController.swift */,
@@ -65,6 +73,23 @@
 				FA24F2E723B75CF800A672DD /* Info.plist */,
 			);
 			path = SDOSMovie;
+			sourceTree = "<group>";
+		};
+		FA24F2ED23B75FA600A672DD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FA24F2EE23B7607600A672DD /* APIProtocol.swift */,
+				FA24F2F323B761E100A672DD /* MovieAPIService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FA24F2F023B760EE00A672DD /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				FA24F2F123B7610400A672DD /* Constants.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA24F2F223B7610400A672DD /* Constants.swift in Sources */,
+				FA24F2F423B761E100A672DD /* MovieAPIService.swift in Sources */,
+				FA24F2EF23B7607600A672DD /* APIProtocol.swift in Sources */,
 				FA24F2DE23B75CF600A672DD /* ViewController.swift in Sources */,
 				FA24F2DA23B75CF600A672DD /* AppDelegate.swift in Sources */,
 				FA24F2DC23B75CF600A672DD /* SceneDelegate.swift in Sources */,
