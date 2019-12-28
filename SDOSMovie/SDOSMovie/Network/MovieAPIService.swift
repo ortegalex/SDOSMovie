@@ -11,8 +11,9 @@ import Foundation
 
 struct MovieAPIService: APIProtocol {
     
-    static func searchMovies<T:Codable>(searchText: String, completionHandler: @escaping (ResultHandler<T>) -> Void) {
-        Self.dataTask(urlRequest: "?s=" + searchText, method: "GET", parameters: nil, completion: { (success, data) in
+    static func searchMovies<T:Codable>(searchText: String, page: Int, completionHandler: @escaping (ResultHandler<T>) -> Void) {
+        let params = ["s":searchText, "page": String(page)]
+        Self.dataTask(method: "GET", parameters: params, completion: { (success, data) in
             if success, let data = data as? Data {
                 let decoder = JSONDecoder()
                 do {
@@ -29,7 +30,8 @@ struct MovieAPIService: APIProtocol {
     }
     
     static func getMovie<T:Codable>(byId: String, completionHandler: @escaping (ResultHandler<T>) -> Void) {
-        Self.dataTask(urlRequest: "?i=" + byId, method: "GET", parameters: nil, completion: { (success, data) in
+        let params = ["i":byId]
+        Self.dataTask(method: "GET", parameters: params, completion: { (success, data) in
             if success, let data = data as? Data {
                 let decoder = JSONDecoder()
                 do {

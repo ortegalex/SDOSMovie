@@ -13,7 +13,10 @@ extension UIImageView {
 
     func setImage(_ url: String, placeholder: UIImage? = nil) {
         self.kf.indicatorType = .activity
-        self.kf.setImage(with: URL(string: url), placeholder: placeholder)
+        self.image = placeholder
+        if let urlImg = URL(string: url), url.count > 5  {
+            self.kf.setImage(with: urlImg, placeholder: placeholder)
+        }
     }
 }
 

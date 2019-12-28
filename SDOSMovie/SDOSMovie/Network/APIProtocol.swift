@@ -25,24 +25,23 @@ protocol APIProtocol {
 
 extension APIProtocol {
     
-    static func dataTask(urlRequest: String, method: String, parameters: [String: String]?, completion: @escaping CompletionClosure) {
+    static func dataTask(method: String, parameters: [String: String]?, completion: @escaping CompletionClosure) {
         
-        let urlString = Constants.kBaseURL + urlRequest + "&apiKey=" + Constants.kApiKey
-        guard let url = URL(string: urlString) else {
-            return
+        var components = URLComponents(string: Constants.kBaseURL)!
+        components.queryItems = [
+            URLQueryItem(name: "apiKey", value: Constants.kApiKey)
+        ]
+        for (key, value) in parameters ?? [:] {
+            let queryItem = URLQueryItem(name: key, value: "\(value)")
+            components.queryItems!.append(queryItem)
         }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = method
-        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         
-        if (parameters != nil) {
-            let httpBody = try? JSONSerialization.data(withJSONObject: parameters ?? "", options: [])
-            request.httpBody = httpBody
-        }
+        var request2 = URLRequest(url: components.url!)
+        request2.httpMethod = method
+        request2.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        
-        session.dataTask(with: request) { (data, response, error) -> Void in
+        session.dataTask(with: request2) { (data, response, error) -> Void in
             if let data = data {
                 if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {
                     completion(true, data as AnyObject)

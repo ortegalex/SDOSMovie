@@ -17,7 +17,7 @@ struct SearchResult: Codable {
     enum CodingKeys: String, CodingKey {
         case response = "Response"
         case movies = "Search"
-        case totalResults = "TotalResults"
+        case totalResults = "totalResults"
         case error = "Error"
     }
 }
