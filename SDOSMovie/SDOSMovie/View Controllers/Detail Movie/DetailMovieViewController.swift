@@ -11,13 +11,13 @@ import UIKit
 class DetailMovieViewController: UIViewController {
 
     @IBOutlet weak var imgPoster: UIImageView!
-    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var lbTitle: SDOSLabel!
     @IBOutlet weak var lbYear: UILabel!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var lbActors: UILabel!
-    @IBOutlet weak var lbDirector: UILabel!
-    @IBOutlet weak var lbGenre: UILabel!
-    @IBOutlet weak var lbPlot: UILabel!
+    @IBOutlet weak var lbActors: SDOSLabel!
+    @IBOutlet weak var lbDirector: SDOSLabel!
+    @IBOutlet weak var lbGenre: SDOSLabel!
+    @IBOutlet weak var lbPlot: SDOSLabel!
     @IBOutlet weak var lbDuration: UILabel!
     @IBOutlet weak var openButton: UIButton!
     
@@ -39,6 +39,9 @@ class DetailMovieViewController: UIViewController {
             let tap = UITapGestureRecognizer(target: self, action: #selector(expandImage))
             self.imgPoster.isUserInteractionEnabled = true
             self.imgPoster.addGestureRecognizer(tap)
+            
+            self.view.allSubViewsOf(type: SDOSLabel.self).forEach { $0.delegate = self }
+            
         }
     }
 
@@ -102,5 +105,11 @@ class DetailMovieViewController: UIViewController {
         present(ac, animated: true)
     }
     
+}
 
+// MARK: - SDOSLabel Delegate
+extension DetailMovieViewController: SDOSLabelDelegate {
+    func didTap(_ text: String) {
+        showToast(message: "Texto copiado al portapapeles")
+    }
 }

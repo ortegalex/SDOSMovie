@@ -101,6 +101,7 @@ extension SearchMovieViewController: UISearchBarDelegate {
         }
         currentPage = 1
         searchMovies(refresh: true)
+        self.searchBar.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

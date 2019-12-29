@@ -34,6 +34,7 @@
 		FA24F31B23B7D3BB00A672DD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F31A23B7D3BB00A672DD /* Helpers.swift */; };
 		FA24F31F23B7DC2B00A672DD /* PosterMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F31D23B7DC2B00A672DD /* PosterMovieViewController.swift */; };
 		FA24F32023B7DC2B00A672DD /* PosterMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA24F31E23B7DC2B00A672DD /* PosterMovieViewController.xib */; };
+		FA24F34423B8D1FF00A672DD /* SDOSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F34323B8D1FF00A672DD /* SDOSLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		FA24F31A23B7D3BB00A672DD /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FA24F31D23B7DC2B00A672DD /* PosterMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterMovieViewController.swift; sourceTree = "<group>"; };
 		FA24F31E23B7DC2B00A672DD /* PosterMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterMovieViewController.xib; sourceTree = "<group>"; };
+		FA24F34323B8D1FF00A672DD /* SDOSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDOSLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,11 +129,10 @@
 				FA24F2ED23B75FA600A672DD /* Network */,
 				FA24F30323B7705100A672DD /* View Controllers */,
 				FA24F30623B7735C00A672DD /* Cells */,
+				FA24F34523B8F8DC00A672DD /* Storyboards */,
 				FA24F2D923B75CF600A672DD /* AppDelegate.swift */,
 				FA24F2DB23B75CF600A672DD /* SceneDelegate.swift */,
-				FA24F2DF23B75CF600A672DD /* Main.storyboard */,
 				FA24F2E223B75CF800A672DD /* Assets.xcassets */,
-				FA24F2E423B75CF800A672DD /* LaunchScreen.storyboard */,
 				FA24F2E723B75CF800A672DD /* Info.plist */,
 			);
 			path = SDOSMovie;
@@ -179,9 +180,9 @@
 		FA24F30323B7705100A672DD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA24F31C23B7DC0D00A672DD /* Poster Movie */,
-				FA24F31323B7BECE00A672DD /* Detail Movie */,
 				FA24F31223B7BEB700A672DD /* Search Movies */,
+				FA24F31323B7BECE00A672DD /* Detail Movie */,
+				FA24F31C23B7DC0D00A672DD /* Poster Movie */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -199,6 +200,7 @@
 		FA24F31123B7BAC000A672DD /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
+				FA24F34323B8D1FF00A672DD /* SDOSLabel.swift */,
 				FA24F30F23B7AF4900A672DD /* EZLoadingActivity.swift */,
 				FA24F31823B7C98800A672DD /* MoviesEmptyView.swift */,
 			);
@@ -229,6 +231,15 @@
 				FA24F31E23B7DC2B00A672DD /* PosterMovieViewController.xib */,
 			);
 			path = "Poster Movie";
+			sourceTree = "<group>";
+		};
+		FA24F34523B8F8DC00A672DD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FA24F2DF23B75CF600A672DD /* Main.storyboard */,
+				FA24F2E423B75CF800A672DD /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA24F2F223B7610400A672DD /* Constants.swift in Sources */,
+				FA24F34423B8D1FF00A672DD /* SDOSLabel.swift in Sources */,
 				FA24F31B23B7D3BB00A672DD /* Helpers.swift in Sources */,
 				FA24F2F723B766A400A672DD /* SearchResult.swift in Sources */,
 				FA24F30923B7738D00A672DD /* MovieTableViewCell.swift in Sources */,
