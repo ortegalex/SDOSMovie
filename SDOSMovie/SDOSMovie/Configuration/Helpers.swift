@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Helpers {
+struct Functions {
     
     static func open(_ urlString: String) -> Bool {
         if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {

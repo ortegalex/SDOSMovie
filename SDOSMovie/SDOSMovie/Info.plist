@@ -58,5 +58,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Necesitamos acceso a tu librería de fotos para poder guardar el poster de la película</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Necesitamos acceso a tu librería de fotos para poder guardar el poster de la película</string>
 </dict>
 </plist>

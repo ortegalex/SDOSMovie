@@ -20,11 +20,19 @@ class SearchMovieViewController: UIViewController {
     
     var movies = [Movie]()
     
+    
+    lazy var emptyView: MoviesEmptyView = {
+        let ev = MoviesEmptyView(frame: self.view.frame)
+        ev.setMessage(message: "Search a movie")
+        return ev
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+        self.tableView.backgroundView = emptyView
         self.searchBar.delegate = self
 
         self.tableView.tableFooterView = UIView()
@@ -43,12 +51,10 @@ class SearchMovieViewController: UIViewController {
                 case .success(let result):
                     strongSelf.reloadTable(result: result)
                 case .failure(let error):
-                    strongSelf.showAlertDialog(error.localizedDescription, title: "Error", didClose: nil)
+                    strongSelf.showAlertDialog(error, title: "Error", didClose: nil)
                 }
             }
-            
         }
-        
     }
     
     private func fetchNextPage() {
@@ -62,6 +68,7 @@ class SearchMovieViewController: UIViewController {
     }
     
     private func reloadTable(result: SearchResult) {
+        self.tableView.backgroundView = nil
         if let moviesResult = result.movies {
             if currentPage == 1 {
                 self.movies = moviesResult
@@ -70,6 +77,7 @@ class SearchMovieViewController: UIViewController {
             }
         } else {
             self.showAlertDialog("No se han encontrado peliculas con el título \(searchText ?? "")", title: "Aviso", didClose: nil)
+            self.tableView.backgroundView = emptyView
             self.movies.removeAll()
         }
         
@@ -115,11 +123,6 @@ extension SearchMovieViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.reuseIdentifier, for: indexPath) as! MovieTableViewCell
         cell.movie = movies[indexPath.row]
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard isLoadingIndexPath(indexPath) else { return }
-        //fetchNextPage()
     }
     
 }

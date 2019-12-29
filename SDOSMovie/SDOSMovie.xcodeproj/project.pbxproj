@@ -32,6 +32,8 @@
 		FA24F31723B7BF1800A672DD /* DetailMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA24F31523B7BF1800A672DD /* DetailMovieViewController.xib */; };
 		FA24F31923B7C98800A672DD /* MoviesEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F31823B7C98800A672DD /* MoviesEmptyView.swift */; };
 		FA24F31B23B7D3BB00A672DD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F31A23B7D3BB00A672DD /* Helpers.swift */; };
+		FA24F31F23B7DC2B00A672DD /* PosterMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24F31D23B7DC2B00A672DD /* PosterMovieViewController.swift */; };
+		FA24F32023B7DC2B00A672DD /* PosterMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA24F31E23B7DC2B00A672DD /* PosterMovieViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		FA24F31523B7BF1800A672DD /* DetailMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMovieViewController.xib; sourceTree = "<group>"; };
 		FA24F31823B7C98800A672DD /* MoviesEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesEmptyView.swift; sourceTree = "<group>"; };
 		FA24F31A23B7D3BB00A672DD /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		FA24F31D23B7DC2B00A672DD /* PosterMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterMovieViewController.swift; sourceTree = "<group>"; };
+		FA24F31E23B7DC2B00A672DD /* PosterMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterMovieViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 		FA24F30323B7705100A672DD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA24F31C23B7DC0D00A672DD /* Poster Movie */,
 				FA24F31323B7BECE00A672DD /* Detail Movie */,
 				FA24F31223B7BEB700A672DD /* Search Movies */,
 			);
@@ -215,6 +220,15 @@
 				FA24F31523B7BF1800A672DD /* DetailMovieViewController.xib */,
 			);
 			path = "Detail Movie";
+			sourceTree = "<group>";
+		};
+		FA24F31C23B7DC0D00A672DD /* Poster Movie */ = {
+			isa = PBXGroup;
+			children = (
+				FA24F31D23B7DC2B00A672DD /* PosterMovieViewController.swift */,
+				FA24F31E23B7DC2B00A672DD /* PosterMovieViewController.xib */,
+			);
+			path = "Poster Movie";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +293,7 @@
 			files = (
 				FA24F2E623B75CF800A672DD /* LaunchScreen.storyboard in Resources */,
 				FA24F31723B7BF1800A672DD /* DetailMovieViewController.xib in Resources */,
+				FA24F32023B7DC2B00A672DD /* PosterMovieViewController.xib in Resources */,
 				FA24F2E323B75CF800A672DD /* Assets.xcassets in Resources */,
 				FA24F30A23B7738D00A672DD /* MovieTableViewCell.xib in Resources */,
 				FA24F2E123B75CF600A672DD /* Main.storyboard in Resources */,
@@ -344,6 +359,7 @@
 				FA24F2EF23B7607600A672DD /* APIProtocol.swift in Sources */,
 				FA24F30523B770A000A672DD /* SearchMovieViewController.swift in Sources */,
 				FA24F31623B7BF1800A672DD /* DetailMovieViewController.swift in Sources */,
+				FA24F31F23B7DC2B00A672DD /* PosterMovieViewController.swift in Sources */,
 				FA24F31923B7C98800A672DD /* MoviesEmptyView.swift in Sources */,
 				FA24F30223B76E3500A672DD /* UIImageView+Extension.swift in Sources */,
 				FA24F31023B7AF4900A672DD /* EZLoadingActivity.swift in Sources */,

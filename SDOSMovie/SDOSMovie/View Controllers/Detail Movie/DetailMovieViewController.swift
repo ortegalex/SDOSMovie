@@ -18,10 +18,29 @@ class DetailMovieViewController: UIViewController {
     @IBOutlet weak var lbDirector: UILabel!
     @IBOutlet weak var lbGenre: UILabel!
     @IBOutlet weak var lbPlot: UILabel!
+    @IBOutlet weak var lbDuration: UILabel!
     @IBOutlet weak var openButton: UIButton!
     
     var imdbID: String!
-    var shareUrl = ""
+    
+    private var movie: MovieDetail? {
+        didSet {
+            self.lbTitle.text = movie?.title
+            self.lbYear.text = movie?.year
+            self.lbActors.text = movie?.actors
+            self.lbDirector.text = movie?.director
+            self.lbGenre.text = movie?.genre
+            self.lbPlot.text = movie?.plot
+            self.lbDuration.text = movie?.runtime
+            self.imgPoster.setImage(movie?.poster ?? "", placeholder: UIImage(named: "film-poster-placeholder"))
+            
+            self.openButton.addTarget(self, action: #selector(openMovieOnIMDB) , for: .touchUpInside)
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(expandImage))
+            self.imgPoster.isUserInteractionEnabled = true
+            self.imgPoster.addGestureRecognizer(tap)
+        }
+    }
 
     init(with imdbID: String) {
         self.imdbID = imdbID
@@ -54,48 +73,31 @@ class DetailMovieViewController: UIViewController {
                 }
                 switch result {
                 case .success(let result):
-                    strongSelf.configureView(withMovie: result)
-                    print(result)
+                    strongSelf.movie = result
                 case .failure(let error):
-                    strongSelf.showAlertDialog(error.localizedDescription, title: "Error", didClose: nil)
+                    strongSelf.showAlertDialog(error, title: "Error", didClose: nil)
                     
                 }
             }
         }
     }
     
-    private func configureView(withMovie movie: MovieDetail) {
-        self.lbTitle.text = movie.title
-        self.lbYear.text = movie.year
-        self.lbActors.text = movie.actors
-        self.lbDirector.text = movie.director
-        self.lbGenre.text = movie.genre
-        self.lbPlot.text = movie.plot
-        self.imgPoster.setImage(movie.poster, placeholder: UIImage(named: "film-poster-placeholder"))
-        
-        self.shareUrl = Constants.imdbUrl+imdbID
-        
-        self.openButton.addTarget(self, action: #selector(openMovieOnIMDB) , for: .touchUpInside)
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleExpandImage))
-        self.imgPoster.isUserInteractionEnabled = true
-        self.imgPoster.addGestureRecognizer(tap)
-        
-    }
-    
     
     @objc func openMovieOnIMDB() {
-        if !Helpers.open(self.shareUrl) {
+        if !Functions.open(Constants.imdbUrl+imdbID) {
             self.showAlertDialog("No se puede abrir la película", title: "Aviso", didClose: nil)
         }
     }
     
-    @objc func toggleExpandImage() {
-        print("Togle image!!")
+    @objc func expandImage() {
+        guard let movie = self.movie else { return }
+        let vc = PosterMovieViewController(with: movie)
+        let nc = UINavigationController(rootViewController: vc)
+        self.present(nc, animated: true, completion: nil)
     }
     
     @objc func shareMovie() {
-        let items = [URL(string: self.shareUrl)!]
+        let items = [URL(string: Constants.imdbUrl+imdbID)!]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
     }

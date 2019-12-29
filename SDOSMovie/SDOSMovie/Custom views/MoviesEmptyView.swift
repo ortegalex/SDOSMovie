@@ -20,7 +20,7 @@ class MoviesEmptyView: UIView {
     
     lazy var textInfo: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 13.0/255.0, green: 123.0/255.0, blue: 123.0/255.0 , alpha: 0.6)
+        label.textColor = UIColor(red: 133.0/255.0, green: 123.0/255.0, blue: 123.0/255.0 , alpha: 0.6)
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.center
         return label
@@ -45,7 +45,7 @@ class MoviesEmptyView: UIView {
         imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50).isActive = true
         
         textInfo.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
         textInfo.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

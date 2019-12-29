@@ -17,7 +17,7 @@ enum ResponseError: Error {
 
 enum ResultHandler<T: Codable> {
     case success(data:T)
-    case failure(Error)
+    case failure(error:String)
 }
 
 protocol APIProtocol {
@@ -25,7 +25,27 @@ protocol APIProtocol {
 
 extension APIProtocol {
     
-    static func dataTask(method: String, parameters: [String: String]?, completion: @escaping CompletionClosure) {
+    static func commonCall<T:Codable>(params: [String:String], completionHandler: @escaping (ResultHandler<T>) -> Void) {
+        Self.dataTask(method: "GET", parameters: params, completion: { (success, data) in
+            if success, let data = data as? Data {
+                let decoder = JSONDecoder()
+                do {
+                    let result = try decoder.decode(T.self, from: data)
+                    completionHandler(.success(data: result))
+                } catch {
+                    completionHandler(.failure(error: "Error al procesar la respuesta del servidor"))
+                }
+            } else  {
+                if let error = data as? Error {
+                    completionHandler(.failure(error: error.localizedDescription))
+                } else {
+                    completionHandler(.failure(error: "Error en la petición"))
+                }
+            }
+        })
+    }
+    
+    private static func dataTask(method: String, parameters: [String: String]?, completion: @escaping CompletionClosure) {
         
         var components = URLComponents(string: Constants.kBaseURL)!
         components.queryItems = [
@@ -48,6 +68,8 @@ extension APIProtocol {
                 } else {
                     completion(false, error as AnyObject)
                 }
+            } else {
+                completion(false, error as AnyObject)
             }
         }.resume()
     }
