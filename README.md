@@ -7,12 +7,7 @@ SDOSMovie iOS App es un buscador de películas escrito en Swift 5 usando la API 
 
 ## Screenshots
 
-<img src="images/Screen1.png" width=200 height=433>
-<img src="images/Screen2.png" width=200 height=433>
-<img src="images/Screen3.png" width=200 height=433>
-<img src="images/Screen4.png" width=200 height=433>
-<img src="images/Screen5.png" width=200 height=433>
-<img src="images/Screen6.png" width=200 height=433>
+<img src="images/Screen1.png" width=200 height=433><img src="images/Screen2.png" width=200 height=433><img src="images/Screen3.png" width=200 height=433><img src="images/Screen4.png" width=200 height=433><img src="images/Screen5.png" width=200 height=433><img src="images/Screen6.png" width=200 height=433>
 
 
 ## Requerimientos
